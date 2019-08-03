@@ -1,0 +1,7 @@
+For creating a new React app that uses TypeScript, once we have installed globaly 
+create-react-app, run:
+
+    >>> sudo create-react-app my-app . --scripts-version=react-scripts-ts
+
+- Where the "dot" says that we will use the current directory and the "--scripts-version" that we 
+  are going to use TypeScript.

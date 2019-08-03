@@ -1,0 +1,26 @@
+Install SystemJS to helps us to load modules.
+
+    >>> npm install --save systemjs@0.21.5
+
+Then, import system.js in the index.html file:
+
+    - <script src="./node_modules/systemjs/dist/system.js"></script>
+
+Then, configure SystemJS in the index.html:
+
+    - <script>
+        SystemJS.config({
+            baseURL: './',
+            packages: {
+                '/': {
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        SystemJS.import('app.js');
+      </script>
+
+Finally, compile the '.ts' files:
+
+    >>> tsc --init
+    >>> tsc

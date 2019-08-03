@@ -1,0 +1,30 @@
+To put your application under npm control run this command inside your project folder:
+
+    - npm init
+
+This will create a package.json file.
+
+To install a local server run this, the dev-dependency will be automatically added to package.json:
+
+    - npm i lite-server --save-dev
+
+To run lite-server add "start": "lite-server" in package.json in the scripts objects, then simply run:
+
+    - npm start
+
+To install globaly TypeScript run:
+
+    - sudo npm i -g typescript
+
+To compile a TypeScript file:
+
+    - tsc my-script.ts
+
+To compile all TypeScript files in our project we have to put our application under TypeScript control, to do this run:
+
+    - tsc --init
+
+This will create a tsconfig.json that tells that this project is using TypeScript, compile all '.ts' files automatically.
+To compile all '.ts' files run:
+
+    - tsc

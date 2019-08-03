@@ -1,0 +1,11 @@
+Namespaces:
+    - Organize applications with JS objects.
+    - Split into multiple files.
+    - Doesn't need a Loader.
+    - Dependencies get difficult to manage in bigger applications.
+
+Modules:
+    - Organize applications in real modules.
+    - Need a Loader like SystemJS.
+    - Can be split into multiple files.
+    - Explicit dependency declaration for mid and big applications.

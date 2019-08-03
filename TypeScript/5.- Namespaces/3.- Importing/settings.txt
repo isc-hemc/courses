@@ -1,0 +1,3 @@
+While using import, we can compile our main TypeScript file by running:
+
+    >>> tsc --outFile output.js main.ts

@@ -1,0 +1,3 @@
+To bundle all the TypeScript file togheter into one single file run:
+
+    >>> tsc --outFile output.js tsfile_1.ts tsfile_2.ts ... tsfile_n.ts
