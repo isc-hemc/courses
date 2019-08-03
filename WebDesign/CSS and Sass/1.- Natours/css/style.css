@@ -1,0 +1,227 @@
+/*
+Make a cross browser reset to make every browser reder the page 
+in the exact same way without using Normalize.css, instead by
+using the universal selector.
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0;
+}
+
+
+/*
+Everything related to font must be specified in the body selector.
+By inheritance, all the properties specified here will be inherited
+to all the child properties in the body.
+*/
+ 
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.8),
+        rgba(40, 180, 133, 0.8)),
+    url("./../img/hero.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
+}
+
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+
+.logo {
+    height: 35px;
+}
+
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 50px;
+}
+
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
+    /* animation-timing-function: ease-in; */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 0.5s; */
+}
+
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 1.5s;
+}
+
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+/*
+Because this is a link, we add the pseudo-class "link".
+Pseudo-classes are a special state of a selector, so, ":link"
+or ":visited" is the state of the "btn" selector. We use this
+pseudo-classes to style an element under a special condition.
+*/
+
+
+.btn-animated {
+    animation: moveInBottom 1.5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+
+/*
+There are two types of animations in CSS:
+    1.- Using the transition property: Changing the properties that we want to animate in an event.
+    2.- Keyframes at-rule: To make an animation as we wanted to be.
+*/
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(20px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-20px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    80% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+/*
+Pseudo-element allow us to style certain parts of elements, this pseudo-elements are treated like child of the element.
+    - after: adds a virtual element right after the element we are selecting, and the we can style that element.
+*/
+
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+
+.btn-white::after {
+    background-color: #fff;
+    color: #777;
+}
+
+
+.btn:hover::after {
+    transform: scaleX(1.5) scaleY(1.6);
+    opacity: 0;
+}

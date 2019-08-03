@@ -1,0 +1,39 @@
+/*
+ * CSS variables can be manipulated in JS, we can also add them in our dev-tools. The
+ * custom properties to define our variables need to be inside a scope/declaration-clock,
+ * this central place to collect our variables will be the 'root' pseudo-class. The root
+ * of the document make available all the custom properties through the application. To
+ * distinguish our custom properties we use '--' before the name of our property.
+ */
+:root {
+  --color-primary: #eb2f64;
+  --color-primary-light: #FF3366;
+  --color-primary-dark: #BA265D;
+  --grey-light-1: #faf9f9;
+  --grey-light-2: #f4f2f2;
+  --grey-light-3: #f0eeee;
+  --grey-light-4: #ccc;
+  --grey-dark-1: #333;
+  --grey-dark-2: #777;
+  --grey-dark-3: #999; }
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background: black; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNvbXAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7RUFNRTtBQUNGO0VBQ0Usd0JBQXdCO0VBQ3hCLDhCQUE4QjtFQUM5Qiw2QkFBNkI7RUFDN0IsdUJBQXVCO0VBQ3ZCLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsb0JBQW9CO0VBQ3BCLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsbUJBQW1CLEVBQUU7O0FBRXZCOzs7RUFHRSxXQUFXO0VBQ1gsVUFBVTtFQUNWLG1CQUFtQixFQUFFOztBQUV2QjtFQUNFLGdCQUFnQixFQUFFOztBQUVwQjtFQUNFLHNCQUFzQixFQUFFOztBQUUxQjtFQUNFLG9DQUFvQztFQUNwQyxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGlCQUFpQixFQUFFIiwiZmlsZSI6InN0eWxlLnByZWZpeC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogQ1NTIHZhcmlhYmxlcyBjYW4gYmUgbWFuaXB1bGF0ZWQgaW4gSlMsIHdlIGNhbiBhbHNvIGFkZCB0aGVtIGluIG91ciBkZXYtdG9vbHMuIFRoZVxuICogY3VzdG9tIHByb3BlcnRpZXMgdG8gZGVmaW5lIG91ciB2YXJpYWJsZXMgbmVlZCB0byBiZSBpbnNpZGUgYSBzY29wZS9kZWNsYXJhdGlvbi1jbG9jayxcbiAqIHRoaXMgY2VudHJhbCBwbGFjZSB0byBjb2xsZWN0IG91ciB2YXJpYWJsZXMgd2lsbCBiZSB0aGUgJ3Jvb3QnIHBzZXVkby1jbGFzcy4gVGhlIHJvb3RcbiAqIG9mIHRoZSBkb2N1bWVudCBtYWtlIGF2YWlsYWJsZSBhbGwgdGhlIGN1c3RvbSBwcm9wZXJ0aWVzIHRocm91Z2ggdGhlIGFwcGxpY2F0aW9uLiBUb1xuICogZGlzdGluZ3Vpc2ggb3VyIGN1c3RvbSBwcm9wZXJ0aWVzIHdlIHVzZSAnLS0nIGJlZm9yZSB0aGUgbmFtZSBvZiBvdXIgcHJvcGVydHkuXG4gKi9cbjpyb290IHtcbiAgLS1jb2xvci1wcmltYXJ5OiAjZWIyZjY0O1xuICAtLWNvbG9yLXByaW1hcnktbGlnaHQ6ICNGRjMzNjY7XG4gIC0tY29sb3ItcHJpbWFyeS1kYXJrOiAjQkEyNjVEO1xuICAtLWdyZXktbGlnaHQtMTogI2ZhZjlmOTtcbiAgLS1ncmV5LWxpZ2h0LTI6ICNmNGYyZjI7XG4gIC0tZ3JleS1saWdodC0zOiAjZjBlZWVlO1xuICAtLWdyZXktbGlnaHQtNDogI2NjYztcbiAgLS1ncmV5LWRhcmstMTogIzMzMztcbiAgLS1ncmV5LWRhcmstMjogIzc3NztcbiAgLS1ncmV5LWRhcmstMzogIzk5OTsgfVxuXG4qLFxuKjo6YWZ0ZXIsXG4qOjpiZWZvcmUge1xuICBtYXJnaW46IDBweDtcbiAgcGFkZGluZzogMDtcbiAgYm94LXNpemluZzogaW5oZXJpdDsgfVxuXG5odG1sIHtcbiAgZm9udC1zaXplOiA2Mi41JTsgfVxuXG5ib2R5IHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDsgfVxuXG5ib2R5IHtcbiAgZm9udC1mYW1pbHk6ICdPcGVuIFNhbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsaW5lLWhlaWdodDogMS42O1xuICBiYWNrZ3JvdW5kOiBibGFjazsgfVxuIl19 */
