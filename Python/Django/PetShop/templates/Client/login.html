@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Login - Pet Shop {% endblock %}
+{% block extrastatic_top %}
+<link rel = "stylesheet" href = "{% static 'css/fontawesome/css/fontawesome-all.css' %}">
+{% endblock %}
+
+{% block header %}
+<div class = "row">
+  <div class = "col s12 m12 l12">
+    <nav>
+      <div class = "nav-wrapper deep-purple lighten-2">
+        <a href = "#" class = "l12 m12 s12 brand-logo center">
+          <i class = "fas fa-paw fa-1x"></i>
+          Pet Shop
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class = "row">
+  <div class = "col l5 m8 s8 offset-l1 offset-m2 offset-s2">
+    <img class = "responsive-img" src = "{% static 'media/login_image.jpg' %}" alt = "">
+  </div>
+  <div class = "col l6 m9 s9 input-field">
+    <div class = "row">
+      <div class = "col l6 m2 s4 offset-m4 offset-s2">
+        <h6 class = "center-align"> Sign in </h6>
+      </div>
+      <div class = "col l6 m4 s5 offset-m2 offset-s1">
+        <h6 class = "center-align"> or <a href = "register.html"> create an account </a> </h6>
+      </div>
+      <div class = "row">
+        <form id = "Login">
+          <div class = "col l9 m8 s8 offset-l2 offset-m4 offset-s2 input-field">
+            <label> Username: </label>
+            <input type = "text"> </input>
+          </div>
+          <div class = "col l9 m8 s8 offset-l2 offset-m4 offset-s2 input-field">
+            <label> Password: </label>
+            <input type = "text"> </input>
+          </div>
+          <div class = "col l9 m8 offset-l2 offset-m4 input-field">
+            <button type = "submit" class = "btn blue waves-effect waves-light" style = "width: 100%"> Sign in </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

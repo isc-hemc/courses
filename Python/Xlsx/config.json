@@ -1,0 +1,47 @@
+{
+    "name": "Reporte_ML",
+    "worksheet_name": "Mercado Libre",
+    "header_cells_format_raw": {
+        "font_name": "Times New Roman",
+        "font_size": 12,
+        "font_color": "black",
+        "bold": true,
+        "italic": false,
+        "underline": false,
+        "align": "center",
+        "valign": "vcenter",
+        "border": 0,
+        "num_format": "$#,###,###.##"
+    },
+    "content_cells_format_raw": {
+        "font_name": "Times New Roman",
+        "font_size": 11,
+        "font_color": "black",
+        "bold": false,
+        "italic": false,
+        "underline": false,
+        "align": "center",
+        "valign": "vcenter",
+        "border": 1,
+        "num_format": "$#,###,###.##"
+    },
+    "rows_size_format_raw": {
+        "indexes": [0],
+        "sizes": [40]
+    },
+    "columns_size_format_raw": {
+        "indexes": ["A:A", "B:B", "C:C", "D:D", "E:E", "F:F"],
+        "sizes": [30, 50, 50, 20, 30, 30]
+    },
+    "properties_raw": {
+        "title":    "",
+        "subject":  "",
+        "author":   "David Hernandez Martinez",
+        "manager":  "Victor Ludwig Escalante Nuñez",
+        "company":  "Lumbrera",
+        "category": "Reporte",
+        "keywords": "Mercado Libre, ML, DUCA, Costos, Envio",
+        "created":  "",
+        "comments": "Automatizado por Python y XlsxWriter"
+    }
+}

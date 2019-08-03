@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  flaskapp:
+    build: ./flaskapp
+    container_name: app-flaskapp
+    image: app-flaskapp:latest
+    expose:
+      - 8080
+
+  proxy:
+    build: ./nginx
+    container_name: proxy-flaskapp
+    image: proxy-flaskapp:latest
+    ports:
+      - "80:80"

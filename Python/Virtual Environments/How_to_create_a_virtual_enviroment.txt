@@ -1,0 +1,52 @@
+There are multiple virtual environments for Python, we can create then using package managers as miniconda, anaconda or virtualenv. 
+
+========== FOR VIRTUALENV ==========
+
+To create a virtual environment using virtualenv, we need to have previously installed "pip". Once we have it installed we run the following commands
+in console on the package/folder that we what to install the enviroment.
+
+>>> pip install virtualenv
+
+- To create a enviroment:
+
+>>> virtualenv __name_of_the_env__
+
+- To run the enviroment:
+
+>>> source __name_of_the_env__/bin/activate
+
+- To see which package you have installed in your enviroment:
+
+>>> pip freeze
+
+- To install package:
+
+>>> pip install __name_of_the_package__
+
+========== FOR MINICONDA ==========
+
+First download the miniconda installer.
+
+- To install:
+
+>>> bash __name_of_the_installer_file__
+
+Add miniconda to your path.
+
+- To create and enviroment:
+
+>>> conda create -n __name_of_the_env__ 
+
+- To activate your enviroment:
+
+>>> source activate __name_of_the_enviroment__
+
+- To install packages:
+
+>>> conda install __name_of_the_packages__
+
+========== TO INSTALL A PROGRAM REQUIREMENTS ==========
+
+>>> pip install -r requirements.txt
+
+requirements.txt it’s created by the developer.

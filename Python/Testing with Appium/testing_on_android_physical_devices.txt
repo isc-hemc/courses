@@ -1,0 +1,90 @@
+For testing on physical android devices download and install the following softwares:
+
+    - Appium Client.
+    - Android Studio.
+
+    For adb using 'brew':
+
+        - Install 'homebrew':
+
+            >>> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+        - Install 'adb':
+
+            >>> brew cask install android-platform-tools
+
+        - Start using 'adb':
+
+            >>> adb devices
+
+    Setting the ANDROID_HOME environment variable with the Android SDK root directory path:
+
+        - Open the 'bash_profile' file:
+
+            >>> touch ~/.bash_profile; open ~/.bash_profile
+
+        - Add the following commands then save and close:
+
+            · export ANDROID_HOME=/Users/user_name/Library/Android/sdk
+            · export PATH=$ANDROID_HOME/:$PATH
+            · export PATH=$ANDROID_HOME/platform-tools/:$PATH
+            · export PATH=$ANDROID_HOME/tools/:$PATH export PATH=/usr/local/bin/:$PATH
+
+    Then, run this command:
+
+        >>> launchctl setenv ANDROID_HOME /Users/user_name/Library/Android/sdk
+
+    Finally, restart the system.
+
+
+
+
+Use adb shell to know the app package and app current focus:
+
+    >>> adb shell
+    >>> dumpsys window windows | grep -E 'mCurrentFocus'
+
+    - Should return something like this:
+    
+        >>> mCurrentFocus=Window{bce4d7a u0 itch.varptini.agenda/itch.varptini.agenda.Agenda}
+
+        Where 'itch.varptini.agenda' it's the package and 'itch.varptini.agenda.Agenda' it's the app current focus.
+
+
+
+
+Setting the 'DESIRED CAPABILITIES' of our physical device in the Appium Inspector:
+
+    - {
+          "platformName": "Android",
+          "platformVersion": "7.0",
+          "deviceName": "ZTE BLADE V8 MINI",
+          "appPackage": "itch.varptini.agenda",
+          "appActivity": "itch.varptini.agenda.Agenda",
+          "udid": "20e49c2a",
+          "noReset": true
+      }
+
+
+
+
+Setting the 'DESIRED CAPABILITIES' of our physical device for running tests (example):
+
+    - path = os.path.abspath(os.path.join(os.path.dirname(__file__), "path_to_the_apk"))
+    - desired_capabilities = {
+          "platformName": "Android",
+          "platformVersion": "7.0",
+          "deviceName": "ZTE BLADE V8 MINI",
+          "udid": "20e49c2a",
+          "app": path
+      }
+
+
+
+
+Running the test script.
+
+    from appium import webdriver
+    driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_capabilities)
+
+    >>> pytest test_script.py
