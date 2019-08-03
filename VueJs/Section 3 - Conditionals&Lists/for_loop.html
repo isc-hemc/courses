@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Loops</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <ul>
+                <!-- During the loop, vue.js creates the variable 'ingredient'. -->
+                <h1>Simple for loop.</h1>
+                <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+                <hr/>
+                <!-- For getting the current index. -->
+                <h1>For loop with index.</h1>
+                <li v-for="(ingredient, index) in ingredients">{{ ingredient }} at index {{ index }}</li>
+                <hr/>
+                <!-- Loop through indexes. -->
+                <h1>For loop though indexes.</h1>
+                <li v-for="i in 3">{{ ingredients[i - 1] }}</li>
+                <hr/>
+            </ul>
+        </div>
+    </body>
+
+    <script>
+        var myapp = new Vue({
+            el: '#app',
+            data: {
+                ingredients: ['milk', 'fruit', 'cookies'],
+                persons: [
+                    {name: "David", age: 24, color: "blue"},
+                    {name: "Luz", age: 52, color: "yellow"}
+                ]
+            }
+        });
+    </script>
+</html>

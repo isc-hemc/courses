@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Output raw HTML</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Vue.js only renders text, that's why we need the directive 'v-html' to render html raw content. -->
+            <h1 v-html="link"></h1>
+        </div>
+    </body>
+
+    <script>
+        var myapp = new Vue({
+            el: '#app',
+            data: {
+                link: '<a href="http://www.Google.com">Google</a>'
+            }
+        });
+    </script>
+</html>

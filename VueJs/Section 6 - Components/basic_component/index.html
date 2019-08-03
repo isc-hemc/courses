@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <my-cmp></my-cmp>
+    <my-cmp></my-cmp>
+  </div>
+
+  <script>
+    Vue.component('my-cmp', {
+      /* The components extends from the Vue instance, that why we 
+       * can't put the element 'data' like in the Vue instances
+       * because, as I said, the component extends from the Vue
+       * instance and can interfer with the other 'data' properties,
+       * so we need to create a function that return an object.
+       */
+      data: function(){
+        return {
+          critical: 'Critical'
+        }
+      },
+      template: '<h1>Server status: {{ critical }}.</h1>'
+    });
+
+    var app = new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+</html>

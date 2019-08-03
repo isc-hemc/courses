@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <my-cmp></my-cmp>
+  </div>
+
+  <script>
+    /* To create local components, first create an object with
+     * the configuration of your component and store it in a
+     * variable, then register the component in the Vue instance
+     * in the 'components' object and give it a name.
+     */
+    var cmp = {
+      data: function(){
+        return {
+          status: 'Critical',
+          flag: true
+        }
+      },
+      template: '<h1>Server status: {{ status }}. <button @click="changeStatus">Change Status</button></h1>',
+      methods: {
+        changeStatus: function(){
+          if(this.flag){
+            this.status = "Normal";
+          }else{
+            this.status = "Critical";
+          }
+          this.flag = !this.flag;
+        }
+      }
+    };
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'my-cmp': cmp
+      }
+    });
+  </script>
+</body>
+</html>

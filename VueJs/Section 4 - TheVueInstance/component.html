@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Vue Instance</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <component></component>
+            <hr/>
+            <component></component>
+        </div>
+    </body>
+
+    <script>
+        /* Vue.component allows to create a new component which it
+         * can be reuse in all Vue instances and templates of this
+         * instances. Vue.component takes as first argument the
+         * selector of the html component and it's second parameter
+         * it's a javaScript object.
+         */
+        Vue.component('component', {
+            template: '<h1>Hello, Component</h1>'
+        });
+
+        var myApp = new Vue({
+            el: '#app'
+        });
+    </script>
+</html>

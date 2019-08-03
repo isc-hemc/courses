@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>First VueJs App</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Use directive v-on to get some information. -->
+            <button v-on:click="increase">Click Me</button>
+            <p>{{ counter }}</p>
+            <hr>
+            <p v-on:mousemove="getCoordinates">{{ x }}, {{ y }} <span v-on:mousemove.stop>DEAD SPOT</span></p> 
+        </div>
+    </body>
+
+    <script>
+        var myapp = new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                /* The event object is created by javascript and the DOM and
+                 * holds some information that can be modified.
+                 */
+                increase: function(){
+                    this.counter++;
+                },
+                getCoordinates: function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                }
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Directive v-once</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Use v-once to avoid re-render, all content inside of this element will not be update even if the 'title' variable changes. -->
+            <h3 v-once>{{ title }} -> With v-once directive.</h3>
+            <h3>{{ title }} -> Without v-once directive.</h3>
+            <h1>{{ updateTitle() }} ** Here is the calling of the update method **</h1>
+        </div>
+    </body>
+
+    <script>
+        var myapp = new Vue({
+            el: '#app',
+            data: {
+                title: 'Hello, Vue!',
+            },
+            methods: {
+                updateTitle: function(){ 
+                    this.title = "Bye, Vue!";
+                }
+            }
+        });
+    </script>
+</html>

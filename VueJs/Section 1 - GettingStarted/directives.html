@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>v-on Directive</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <!-- Template of Vue.js 'myapp' instance. -->
+        <div id="app">
+            <!-- Directive 'v-on' listends to some event, in this case the 'input' event. -->
+            <input type="text" v-on:input="change"></input>
+            <h1>{{ title }}</h1>
+        </div>
+    </body>
+
+    <script>
+        var myapp = new Vue({
+            el: '#app',
+            data: {
+                title: 'Hello, Vue!'
+            },
+            methods: {
+                /* 'this' refers to the 'data' object. In the background, Vue.js proxies all the 
+                 * data properties to the top Vue instance automatically.
+                 */
+                change: function(event){
+                    this.title = event.target.value;
+                }
+            }
+        });
+    </script>
+</html>

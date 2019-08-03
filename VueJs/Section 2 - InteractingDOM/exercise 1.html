@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Exercise</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- 1) Fill the <p> below with your Name and Age using Interpolation -->
+            <p v-once>Name: {{ name }}.</p>
+            <p>Age: {{ age }}.</p>
+            <hr/>
+            <!-- 2) Output your age, multiplied by 3 -->
+            <p>Age 3 times: {{ age * 3 }}.</p>
+            <hr/>
+            <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+            <p v-once>Random Float: {{ randomFloat() }}</p>
+            <hr/>
+            <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+            <div>Image: <img v-bind:src="image" style="width:100px;height:100px"/></div>
+            <hr/>
+            <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+            <input type="text" v-on:input="changeName"></input>
+            <p>Name: {{ name }}.</p>
+            <hr/>
+        </div>
+    </body>
+
+    <script>
+        var myapp = new Vue({
+            el: '#app',
+            data: {
+                name: "David Martinez",
+                age: 24,
+                image: "https://www.vuemastery.com/images/lgo-vue-news.svg"
+            },
+            methods: {
+                randomFloat: function(){
+                    return Math.random();
+                },
+                changeName: function(event){
+                    this.name = event.target.value
+                }
+            }
+        });
+    </script>
+</html>
