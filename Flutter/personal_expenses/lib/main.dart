@@ -51,64 +51,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final String _title = 'Personal Expenses';
-  final List<Transaction> _userTransactions = <Transaction>[
-    Transaction(id: "1", title: "Jeans", date: DateTime.now(), amount: 9.99),
-    Transaction(
-        id: "2",
-        title: "Shoes",
-        date: DateTime.now().subtract(Duration(days: 1)),
-        amount: 9.99),
-    Transaction(
-        id: "3",
-        title: "Socks",
-        date: DateTime.now().subtract(Duration(days: 1)),
-        amount: 19.99),
-    Transaction(
-        id: "4",
-        title: "Netflix",
-        date: DateTime.now().subtract(Duration(days: 1)),
-        amount: 4.99),
-    Transaction(
-        id: "5",
-        title: "Spotify",
-        date: DateTime.now().subtract(Duration(days: 2)),
-        amount: 5.99),
-    Transaction(
-        id: "6",
-        title: "Clash Royale",
-        date: DateTime.now().subtract(Duration(days: 2)),
-        amount: 14.99),
-    Transaction(
-        id: "7",
-        title: "T-Shirt",
-        date: DateTime.now().subtract(Duration(days: 3)),
-        amount: 9.99),
-    Transaction(
-        id: "8",
-        title: "Jacket",
-        date: DateTime.now().subtract(Duration(days: 3)),
-        amount: 6.99),
-    Transaction(
-        id: "9",
-        title: "Polo",
-        date: DateTime.now().subtract(Duration(days: 3)),
-        amount: 0.99),
-    Transaction(
-        id: "10",
-        title: "Food",
-        date: DateTime.now().subtract(Duration(days: 4)),
-        amount: 11.99),
-    Transaction(
-        id: "11",
-        title: "Clean Stuff",
-        date: DateTime.now().subtract(Duration(days: 5)),
-        amount: 6.99),
-    Transaction(
-        id: "12",
-        title: "Wallet",
-        date: DateTime.now().subtract(Duration(days: 6)),
-        amount: 4.99),
-  ];
+  final List<Transaction> _userTransactions = <Transaction>[];
   List<Transaction> get _recentTransactions {
     return this._userTransactions.where((transaction) {
       return transaction.date
@@ -160,7 +103,8 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               Chart(this._recentTransactions),
-              ListTransactions(this._userTransactions, this._handleDeleteTransaction),
+              ListTransactions(
+                  this._userTransactions, this._handleDeleteTransaction),
             ],
           ),
         ),
