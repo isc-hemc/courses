@@ -1,17 +1,45 @@
-version: '3'
+version: "3.7"
 
 services:
 
   flaskapp:
     build: ./flaskapp
-    container_name: app-flaskapp
-    image: app-flaskapp:latest
+    image: flaskapp:1.0.0
+    container_name: flaskapp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      project-custom-network:
+        aliases:
+          - flaskapp-alias
     expose:
-      - 8080
-
+      - "8080"
+  
   proxy:
     build: ./nginx
-    container_name: proxy-flaskapp
-    image: proxy-flaskapp:latest
+    image: proxy:1.0.0
+    container_name: proxy
+    depends_on:
+      - flaskapp
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - project-custom-network
     ports:
-      - "80:80"
+      - "127.0.0.1:8001:80"
+
+networks:
+  project-custom-network:
+    name: project-custom-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
