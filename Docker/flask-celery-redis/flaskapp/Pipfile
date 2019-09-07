@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pydocstyle = "*"
+pycodestyle = "*"
+pyflakes = "*"
+pre-commit = "*"
+mypy = "*"
+bandit = "*"
+black = "==19.3b0"
+
+[packages]
+celery = "*"
+
+[requires]
+python_version = "3.7"
