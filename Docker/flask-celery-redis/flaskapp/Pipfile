@@ -7,7 +7,6 @@ verify_ssl = true
 pydocstyle = "*"
 pycodestyle = "*"
 pyflakes = "*"
-pre-commit = "*"
 mypy = "*"
 bandit = "*"
 black = "==19.3b0"
