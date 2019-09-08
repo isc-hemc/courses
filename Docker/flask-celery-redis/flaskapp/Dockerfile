@@ -1,10 +1,10 @@
 FROM python:3.7
 
-COPY . /app
+COPY ./app /app
 
 WORKDIR /app
 
 RUN pip install pipenv
 RUN pipenv install
 
-CMD ["pipenv", "run", "celery", "-A", "tasks", "worker", "-l", "info", "-P", "solo"]
+CMD ["pipenv", "run", "uwsgi", "run.ini"]

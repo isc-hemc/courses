@@ -10,11 +10,6 @@ app : Celery
 
 from celery import Celery
 
-app = Celery("tasks")
+app = Celery("async_tasks", include=["async_tasks.tasks"])
 
-app.config_from_object("tasks.celeryconfig")
-
-
-@app.task
-def reverse(string: str) -> str:
-    return string[::-1]
+app.config_from_object("async_tasks.celeryconfig")
