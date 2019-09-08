@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  celery:
+    build:
+      context: ./celeryapp
+      dockerfile: Dockerfile
+    container_name: celery
+    image: celery-worker:1.0
+    networks:
+      - celery-redis
+
+  redis:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    command: ["redis-server", "/etc/redis/redis.conf"]
+    container_name: redis
+    image: redis-tasks-queue:1.0
+    networks:
+      celery-redis:
+        aliases:
+          - redis-db
+    volumes:
+      - type: volume
+        source: redis-volume
+        target: /data/redis-volume
+        volume:
+          no-copy: true
+
+networks:
+  celery-redis:
+    name: celery-redis
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 168.10.10.0/24
+
+volumes:
+  redis-volume:
+    name: redis-volume

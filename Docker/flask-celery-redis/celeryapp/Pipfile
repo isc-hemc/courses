@@ -10,9 +10,11 @@ pyflakes = "*"
 mypy = "*"
 bandit = "*"
 black = "==19.3b0"
+pylint = "*"
 
 [packages]
 celery = "*"
+redis = "*"
 
 [requires]
 python_version = "3.7"
