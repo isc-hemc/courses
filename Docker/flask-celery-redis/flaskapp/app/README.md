@@ -1,4 +1,4 @@
-# Celery
+# Flask and Celery
 
 Backend of the this example project.
 
@@ -36,13 +36,13 @@ Then, here's a list of the variables needed with its default value
 
 Stablish the conection with the Redis.
 
-| Variable               | Valor          |
-|------------------------|----------------|  
-| [REDIS_HOST]           | 127.0.0.1      |
-| [REDIS_PORT]           | 6379           |
-| [REDIS_DB]             | 0              |
-| [REDIS_BACKEND_DB]     | 0              |
-| [REDIS_PASSWORD]       | password       |
+| Variable             | Valor          |
+|----------------------|----------------|  
+| REDIS_HOST           | 127.0.0.1      |
+| REDIS_PORT           | 6379           |
+| REDIS_DB             | 0              |
+| REDIS_BACKEND_DB     | 0              |
+| REDIS_PASSWORD       | password       |
 
 ## Authors
 
