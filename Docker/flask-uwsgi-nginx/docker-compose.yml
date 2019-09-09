@@ -35,6 +35,7 @@ services:
       - project-custom-network
     ports:
       - "127.0.0.1:8001:80"
+      - "0.0.0.0:8002:80"
 
 networks:
   project-custom-network:
