@@ -67,13 +67,11 @@ def async_task(string: str) -> Response:
 
     """
     task_info = reverse.delay(string=string)
-    return (
-        {
-            "message": "Processing async task.",
-            "data": {"id": task_info.id, "state": task_info.state},
-        },
-        200,
-    )
+    return CustomResponse(
+        headers={"Content-Type": "application/json"},
+        message="Processing async task.",
+        data={"id": task_info.id, "state": task_info.state}
+    ).success()
 
 
 @flask_app.route("/healthcheck", methods=["GET"])
