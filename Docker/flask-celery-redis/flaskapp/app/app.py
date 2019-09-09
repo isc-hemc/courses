@@ -1,6 +1,6 @@
 """Flask server.
 
-Simple flask application with a single endpoint.
+Simple flask application with three endpoints.
 
 Attributes
 ----------
