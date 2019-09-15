@@ -4,11 +4,11 @@
 
 > Quizz.
 
-![https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Quizz+App/Quizz.png]
+![Quizz](https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Quizz+App/Quizz.png)
 
 > Results.
 
-![https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Quizz+App/Result.png]
+![Result](https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Quizz+App/Result.png)
 
 ## Authors
 
