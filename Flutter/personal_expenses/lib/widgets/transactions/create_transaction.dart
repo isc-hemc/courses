@@ -26,33 +26,40 @@ class _CreateTransactionState extends State<CreateTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              controller: titleController,
-              decoration: InputDecoration(labelText: 'Title'),
-              onSubmitted: (_) => _onSubmited(),
-            ),
-            TextField(
-              controller: amountController,
-              decoration: InputDecoration(labelText: 'Amount'),
-              keyboardType: TextInputType.number,
-              onSubmitted: (_) => _onSubmited(),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: FlatButton(
-                child: Text('Add Transaction'),
-                textColor: Theme.of(context).primaryColor,
-                onPressed: _onSubmited,
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 5,
+        child: Container(
+          padding: EdgeInsets.only(
+            top: 10,
+            right: 10,
+            left: 10,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              TextField(
+                controller: titleController,
+                decoration: InputDecoration(labelText: 'Title'),
+                onSubmitted: (_) => _onSubmited(),
               ),
-            )
-          ],
+              TextField(
+                controller: amountController,
+                decoration: InputDecoration(labelText: 'Amount'),
+                keyboardType: TextInputType.number,
+                onSubmitted: (_) => _onSubmited(),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: FlatButton(
+                  child: Text('Add Transaction'),
+                  textColor: Theme.of(context).primaryColor,
+                  onPressed: _onSubmited,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import './widgets/transactions/create_transaction.dart';
 import './widgets/transactions/list_transactions.dart';
 import './widgets/chart/chart.dart';
 import './models/transaction.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   final String _title = 'Personal Expenses';
@@ -88,23 +92,35 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final AppBar appBar = AppBar(
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add, color: Colors.white),
+          onPressed: () => _startCreateTransactionProcess(context),
+        ),
+      ],
+      title: Text(_title),
+    );
     return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add, color: Colors.white),
-            onPressed: () => _startCreateTransactionProcess(context),
-          ),
-        ],
-        title: Text(_title),
-      ),
-      body: Container(
+      appBar: appBar,
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Chart(this._recentTransactions),
-              ListTransactions(
-                  this._userTransactions, this._handleDeleteTransaction),
+              Container(
+                child: Chart(this._recentTransactions),
+                height: mediaQuery.size.height * 0.30 -
+                    appBar.preferredSize.height -
+                    mediaQuery.padding.top,
+              ),
+              Container(
+                child: ListTransactions(
+                    this._userTransactions, this._handleDeleteTransaction),
+                height: mediaQuery.size.height * 0.70 -
+                    appBar.preferredSize.height -
+                    mediaQuery.padding.top,
+              ),
             ],
           ),
         ),
