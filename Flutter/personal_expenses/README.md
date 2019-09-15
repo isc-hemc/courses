@@ -6,11 +6,11 @@
 
 ![Main view without expenses](https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Personal+Expenses/Main+view+without+expenses.png)
 
-> Main view with expenses
+> Main view with expenses.
 
 ![Main view with expenses](https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Personal+Expenses/Main+view+with+expenses.png)
 
-> Adding a new transaction
+> Adding a new transaction.
 
 ![Adding a new transaction](https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Personal+Expenses/Adding+a+new+transaction.png)
 
