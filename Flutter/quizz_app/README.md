@@ -1,16 +1,17 @@
-# quizz_app
+# Quizz App
 
-A new Flutter project.
+**Quizz App** is the first application learned from the course [Learn Flutter & Dart to Build iOS & Android Apps](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/). Is a basic application designed for Android devices using the Material Widgets.
 
-## Getting Started
+> Quizz.
 
-This project is a starting point for a Flutter application.
+![https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Quizz+App/Quizz.png]
 
-A few resources to get you started if this is your first Flutter project:
+> Results.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![https://github-readmecontent.s3.us-east-2.amazonaws.com/Courses/Flutter/Quizz+App/Result.png]
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Authors
+
+Owner of the respository: ***David Martinez** - [Davestring](https://github.com/Davestring).
+
+Application designer and instructor: [Maximilian Schwarzmüller](https://www.academind.com/).
