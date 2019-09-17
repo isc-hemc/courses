@@ -1,4 +1,4 @@
-# Section 2: Rest API
+# Section 2: Node, Express and TypeScript
 
 This module will describe step by step how to create and set up a project that aims to be used as an API Server with **Node.js**, **Express.js** and **TypeScript**.
 
