@@ -1,3 +1,0 @@
-This project was created with the Vue-CLI:
-
-    >>> vue init simple basic_component

@@ -1,9 +1,0 @@
-Install npm and run:
-
-    >>> npm i create-react-app -g
-
-Then, create your React project:
-
-    >>> create-react-app my-app
-    >>> cd my-app
-    >>> npm start
