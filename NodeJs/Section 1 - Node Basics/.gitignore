@@ -94,3 +94,6 @@ public
 # npm
 package.json
 package-lock.json
+
+# VSCode
+.vscode/
