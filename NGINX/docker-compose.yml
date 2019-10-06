@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  nginx:
+    build: "./${DOCKERFILE_PATH}"
+    image: server:1.0
+    container_name: server
+    ports:
+      - "8080:80"
+      - "8081:443"
+    volumes:
+      - type: bind
+        source: "./${NGINX_CONF_PATH}"
+        target: /etc/nginx/nginx.conf
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
