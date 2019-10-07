@@ -19,13 +19,13 @@ The examples were taken from the course [Nginx Fundamentals: High Performance Se
 
 ## Configuration
 
-To run any of this examples it's prepared a docker-compose file which takes automatically a *.env* (**environment**) file and search for the *Dockerfile* and *nginx.conf* that are especified, for example if you want to run the example *1-creating-virtual-host* the *.env* configuration file should look as follows:
+To run any of this examples it's prepared a docker-compose file which takes automatically a *.env* (**environment**) file and search for the *Dockerfile* and *nginx.conf* that are especified, for example if you want to run the example *1-creating-virtual-host* in the *1.-basics* folder then, the *.env* configuration file should look as follows:
 
 > .env file
 
 ```bash
-DOCKERFILE_PATH=./1-creating-virtual-host
-NGINX_CONF_PATH=./1-creating-virtual-host/nginx.conf
+DOCKERFILE_PATH=./1.-basics/1.-creating-virtual-host/
+NGINX_CONF_PATH=./1.-basics/1.-creating-virtual-host/nginx.conf
 ```
 
 ### Environment File
