@@ -37,6 +37,15 @@ File that the docker-compose needs to execute correctly. This file needs the fol
 | DOCKERFILE_PATH | ./example            | Relative path were the "x" dockerfile example is located |
 | NGINX_CONF_PATH | ./example/nginx.conf | Relative path were the "x" nginx.conf example is located |
 
+### Execute
+
+To execute any of the examples run in the command line the following:
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
 ## Authors
 
 **\*David Martinez** - [Davestring](https://github.com/Davestring)
