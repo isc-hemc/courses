@@ -1,44 +1,174 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# App Template
 
-## Available Scripts
+React template that uses TypeScript and comes with an ESLint and Prettier configuration to develop beautiful code.
+
+## Contents
+
+- [Dependencies](#dependencies)
+- [Run](#run)
+- [Appendices](#Appendices)
+- [Authors](#Authors)
+
+---
+
+## Dependencies
+
+![React +16.10](https://img.shields.io/badge/React-+16.10-blue.svg)
+![TypeScript +3.6](https://img.shields.io/badge/TypeScript-+3.6-lightgrey.svg)
+
+---
+
+## Run
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Runs the app in the development mode.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Appendices
 
-### `npm run eject`
+### Appendix A - ESLint and Prettier
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ESLint and Prettier should be a default configuration for developing clean, understandable and beautiful code, below it's a short description of how to make work ESLint and Prettier.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prettier
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To add code formatting **prettier** is a good option:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+```
 
-## Learn More
+- **prettier**: the core prettier library.
+- **eslint-config-prettier**: disables ESLint rules that might conflict with prettier.
+- **eslint-plugin-prettier**: runs prettier as an ESLint rule.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In order to configure *prettier* a *.prettierrc.js* file is required at the root project directory:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+module.exports =  {
+    semi:  true,
+    trailingComma:  'all',
+    singleQuote:  true,
+    printWidth:  120,
+    tabWidth:  4,
+};
+```
+
+### ESLint
+
+For linting TypeScript code we need to install the following development dependencies (there are already installed, take this description as little tutorial):
+
+```bash
+npm install --save-dev eslint eslint-plugin-react @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+- **eslint**: the core ESLint linting library.
+- **eslint-plugin-react**: rules for linting React.
+- **@typescript-eslint/parser**: the parser that will allow ESLint to lint TypeScript code.
+- **@typescript-eslint/eslint-plugin**: a plugin that contains a bunch of ESLint rules that are TypeScript specific.
+
+In order to configure *eslint* an *.eslintrc.js* file is required at the root project directory with the following configuration (includes *prettier*):
+
+```js
+module.exports = {
+    // Specifies the ESLint parser
+    parser: '@typescript-eslint/parser',
+    extends: [
+        // Uses the recommended rules from the @typescript-eslint/eslint-plugin.
+        'plugin:react/recommended',
+        // Uses eslint-config-prettier to disable ESLint rules from
+        // @typescript-eslint/eslint-plugin that would conflict with prettier.
+        'plugin:@typescript-eslint/recommended',
+        // Enables eslint-plugin-prettier and displays prettier errors as ESLint
+        // errors. Make sure this is always the last configuration in the extends array.
+        'plugin:prettier/recommended'
+    ],
+    parserOptions: {
+        // Allows for the parsing of modern ECMAScript features.
+        ecmaVersion: 2018,
+        // Allows for the use of imports.
+        sourceType: 'module',
+        ecmaFeatures: {
+            // Allows for the parsing of JSX.
+            jsx: true,
+        },
+    },
+    rules: {
+        // This rule checks all import declarations and verifies that all imports are
+        // first sorted by the used member syntax and then alphabetically by the first
+        // member or alias name, for more info https://eslint.org/docs/rules/sort-imports.
+        "sort-imports": ["error", {
+            "ignoreCase": false,
+            "ignoreDeclarationSort": false,
+            "ignoreMemberSort": false,
+            "memberSyntaxSortOrder": ["none", "single", "multiple", "all"]
+        }]
+    },
+    settings: {
+        react: {
+            // Tells eslint-plugin-react to automatically detect the version of React.
+            version: 'detect',
+        },
+    }
+};
+```
+
+### Appendix B - Automatically Fixing Code
+
+For a good developer experience, it's useful to setup your editor to automatically run ESLint's automatic fix command (i.e. eslint --fix) whenever a file is saved. Since i'm using VSCode, here is the config required in the *settings.json* file in VSCode to get automatic fixing whenever saving a file:
+
+```json
+{
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "typescript",
+            "autoFix": true
+        },
+        {
+            "language": "typescriptreact",
+            "autoFix": true
+        }
+    ],
+}
+```
+
+If you want that your files format on save then add the following configuration to the *settings.json* file:
+
+```json
+"editor.formatOnSave": true,
+"[javascript]": {
+    "editor.formatOnSave": false,
+},
+"[javascriptreact]": {
+    "editor.formatOnSave": false,
+},
+"[typescript]": {
+    "editor.formatOnSave": false,
+},
+"[typescriptreact]": {
+    "editor.formatOnSave": false,
+}
+```
+
+And that's it, Happy Hacking!
+
+---
+
+## Authors
+
+***David Martinez** - [Davestring](https://github.com/Davestring)
