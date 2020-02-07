@@ -4,10 +4,10 @@ React template that uses TypeScript and comes with an ESLint and Prettier config
 
 ## Contents
 
--   [Dependencies](#dependencies)
--   [Run](#run)
--   [Appendices](#Appendices)
--   [Authors](#Authors)
+- [Dependencies](#dependencies)
+- [Run](#run)
+- [Appendices](#Appendices)
+- [Authors](#Authors)
 
 ---
 
@@ -50,19 +50,20 @@ To add code formatting **prettier** is a good option:
 npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
--   **prettier**: the core prettier library.
--   **eslint-config-prettier**: disables ESLint rules that might conflict with prettier.
--   **eslint-plugin-prettier**: runs prettier as an ESLint rule.
+- **prettier**: the core prettier library.
+- **eslint-config-prettier**: disables ESLint rules that might conflict with prettier.
+- **eslint-plugin-prettier**: runs prettier as an ESLint rule.
 
 In order to configure _prettier_ a _.prettierrc.js_ file is required at the root project directory:
 
 ```js
 module.exports = {
-    semi: true,
-    trailingComma: 'all',
-    singleQuote: true,
-    printWidth: 120,
-    tabWidth: 4,
+  semi: true,
+  trailingComma: 'all',
+  singleQuote: true,
+  printWidth: 80,
+  tabWidth: 2,
+  useTabs: false,
 };
 ```
 
@@ -74,57 +75,57 @@ For linting TypeScript code we need to install the following development depende
 npm install --save-dev eslint eslint-plugin-react @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
--   **eslint**: the core ESLint linting library.
--   **eslint-plugin-react**: rules for linting React.
--   **@typescript-eslint/parser**: the parser that will allow ESLint to lint TypeScript code.
--   **@typescript-eslint/eslint-plugin**: a plugin that contains a bunch of ESLint rules that are TypeScript specific.
+- **eslint**: the core ESLint linting library.
+- **eslint-plugin-react**: rules for linting React.
+- **@typescript-eslint/parser**: the parser that will allow ESLint to lint TypeScript code.
+- **@typescript-eslint/eslint-plugin**: a plugin that contains a bunch of ESLint rules that are TypeScript specific.
 
 In order to configure _eslint_ an _.eslintrc.js_ file is required at the root project directory with the following configuration (includes _prettier_):
 
 ```js
 module.exports = {
-    // Specifies the ESLint parser
-    parser: '@typescript-eslint/parser',
-    extends: [
-        // Uses the recommended rules from the @typescript-eslint/eslint-plugin.
-        'plugin:react/recommended',
-        // Uses eslint-config-prettier to disable ESLint rules from
-        // @typescript-eslint/eslint-plugin that would conflict with prettier.
-        'plugin:@typescript-eslint/recommended',
-        // Enables eslint-plugin-prettier and displays prettier errors as ESLint
-        // errors. Make sure this is always the last configuration in the extends array.
-        'plugin:prettier/recommended',
+  // Specifies the ESLint parser
+  parser: '@typescript-eslint/parser',
+  extends: [
+    // Uses the recommended rules from the @typescript-eslint/eslint-plugin.
+    'plugin:react/recommended',
+    // Uses eslint-config-prettier to disable ESLint rules from
+    // @typescript-eslint/eslint-plugin that would conflict with prettier.
+    'plugin:@typescript-eslint/recommended',
+    // Enables eslint-plugin-prettier and displays prettier errors as ESLint
+    // errors. Make sure this is always the last configuration in the extends array.
+    'plugin:prettier/recommended',
+  ],
+  parserOptions: {
+    // Allows for the parsing of modern ECMAScript features.
+    ecmaVersion: 2018,
+    // Allows for the use of imports.
+    sourceType: 'module',
+    ecmaFeatures: {
+      // Allows for the parsing of JSX.
+      jsx: true,
+    },
+  },
+  rules: {
+    // This rule checks all import declarations and verifies that all imports are
+    // first sorted by the used member syntax and then alphabetically by the first
+    // member or alias name, for more info https://eslint.org/docs/rules/sort-imports.
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'single', 'multiple', 'all'],
+      },
     ],
-    parserOptions: {
-        // Allows for the parsing of modern ECMAScript features.
-        ecmaVersion: 2018,
-        // Allows for the use of imports.
-        sourceType: 'module',
-        ecmaFeatures: {
-            // Allows for the parsing of JSX.
-            jsx: true,
-        },
+  },
+  settings: {
+    react: {
+      // Tells eslint-plugin-react to automatically detect the version of React.
+      version: 'detect',
     },
-    rules: {
-        // This rule checks all import declarations and verifies that all imports are
-        // first sorted by the used member syntax and then alphabetically by the first
-        // member or alias name, for more info https://eslint.org/docs/rules/sort-imports.
-        'sort-imports': [
-            'error',
-            {
-                ignoreCase: false,
-                ignoreDeclarationSort: false,
-                ignoreMemberSort: false,
-                memberSyntaxSortOrder: ['none', 'single', 'multiple', 'all'],
-            },
-        ],
-    },
-    settings: {
-        react: {
-            // Tells eslint-plugin-react to automatically detect the version of React.
-            version: 'detect',
-        },
-    },
+  },
 };
 ```
 
@@ -134,9 +135,9 @@ For a good developer experience, it's useful to setup your editor to automatical
 
 ```json
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
 ```
 
