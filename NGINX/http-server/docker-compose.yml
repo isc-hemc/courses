@@ -1,0 +1,113 @@
+version: '3.7'
+
+services:
+  nginx:
+    build: './${NGINX_PATH}'
+    container_name: http-server
+    healthcheck:
+      test: ['CMD', 'service', 'nginx', 'status', '||', 'exit', '1']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    image: http-server:1.0
+    networks:
+      http-server-network:
+        aliases:
+          - http-server-net
+    ports:
+      - published: '80'
+        target: '80'
+      - published: '443'
+        target: '443'
+      - published: '14000'
+        target: '14000'
+    restart: always
+    volumes:
+      - source: './${NGINX_CONF_PATH}'
+        target: /etc/nginx/nginx.conf
+        type: bind
+      - source: './${NGINX_PATH}/logs'
+        target: '/var/log/nginx/'
+        type: bind
+
+  app:
+    build: ./app
+    container_name: app
+    depends_on:
+      - db
+    expose:
+      - '8080'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080/register"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    image: app:1.0
+    networks:
+      http-server-network:
+        aliases:
+          - app-net
+    restart: always
+    volumes:
+      - source: './app/src'
+        target: '/src'
+        type: bind
+
+  db:
+    build: ./db
+    container_name: app-db
+    env_file:
+      - ./db/mysqldb.env
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      start_period: 10s
+      timeout: 4s
+      retries: 3
+    image: app-db:1.0
+    networks:
+      http-server-network:
+        aliases:
+          - app-db-net
+    restart: always
+    volumes:
+      - type: volume
+        source: app-db-volume
+        target: /data/mysql
+
+  pma:
+    build: ./pma
+    container_name: pma
+    depends_on:
+      - db
+    env_file:
+      - ./pma/pma.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    image: pma:1.0
+    networks:
+      http-server-network:
+        aliases:
+          - pma-net
+    ports:
+      - published: "18000"
+        target: "80"
+    restart: always
+
+networks:
+  http-server-network:
+    name: http-server-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 168.10.10.0/24
+
+volumes:
+  app-db-volume:
+    name: app-db-volume
