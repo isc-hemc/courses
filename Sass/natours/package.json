@@ -1,0 +1,19 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing page built with Sass",
+  "main": "index.js",
+  "repository": "https://github.com/Davestring/courses/tree/master/Sass/natours",
+  "author": "David Martinez",
+  "license": "MIT",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "node-sass": "4.14.0"
+  },
+  "dependencies": {
+    "live-server": "1.2.1"
+  }
+}
