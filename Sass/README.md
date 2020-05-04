@@ -89,7 +89,7 @@ In other words, **The Sass Ampersand** value at the point when it was used was `
 > This is how we declare a mixin in Sass:
 ```scss
 @mixin clearfix {
-    $::after {
+    &::after {
         clear: both;
         content: "";
         display: table;
@@ -193,9 +193,9 @@ yarn add -E live-server
 
 This "repository" has 3 example projects built with Sass:
 
-* Natours: Advanced CSS and Sass
+* Natours: Advanced CSS and Sass with Float Layout
 * Trillo: Master Flexbox
-* Nexter: Master Grid Layout
+* Nexter: Master CSS Grid
 
 Designed and implemented by [Jonas Schmedtmann](https://github.com/jonasschmedtmann) for his Udemy Course [Advanced CSS and Sass: Flexbox, Grid, Animations and More!](https://www.udemy.com/course/advanced-css-and-sass/).
 

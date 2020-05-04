@@ -1,0 +1,18 @@
+/* reset the default browser styles with the universal selector */
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* defines 1rem setting */
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 144rem;
+}

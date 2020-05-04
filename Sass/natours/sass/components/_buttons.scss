@@ -1,0 +1,94 @@
+
+.btn {
+    &:link,
+    &:visited {
+        border-radius: 10rem;
+        /* 
+        * by default anchor tag is inline but inline-block allows to treat the element as it
+        * was a normal block without using the entire width as a block element does and with this,
+        * we can add margin and padding as a normal block
+        */
+        display: inline-block;
+        font-size: $default-font-size;
+        padding: 1.5rem 4rem;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all .2s;
+    }
+    
+    &:hover {
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        transform: translateY(-.3rem);
+
+        /* when the button is hover, the pseudo-element jumps in front the original element */
+        &::after {
+            opacity: 0;
+            transform: scale(1.5);
+        }
+    }
+
+    /* pseudo-classes allows to style an element under specific conditions */
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+        transform: translateY(-.1rem);
+    }
+
+    &::after {
+        border-radius: 10rem;
+        content: "";
+        display: inline-block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: all .4s;
+        width: 100%;
+        /* this pseudo-element starts behaind of the original element */
+        z-index: -1;
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+            color: $color-grey-dark;
+        }
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        /* 
+         * apply the animation at 0% before the animations starts, very useful if we
+         * have animation with delay
+         */
+        animation-fill-mode: backwards;
+    }   
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        border-bottom: .1rem solid $color-primary;
+        color: $color-primary;
+        display: inline-block;
+        font-size: $default-font-size;
+        padding: .2rem;
+        text-decoration: none;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        color: $color-white;
+        transform: translateY(-.3rem);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+        transform: translateY(0);
+    }
+}

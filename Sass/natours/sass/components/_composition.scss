@@ -1,0 +1,39 @@
+.composition {
+    position: relative;
+
+    /* select photos that are not hover */
+    &:hover &__photo:not(:hover) {
+        transform: scale(.9);
+    }
+    
+    &__photo {
+        border-radius: 2px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        outline-offset: 2rem;
+        position: absolute;
+        transition: all .2s;
+        width: 55%;
+        z-index: 10;
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover {
+            outline: 1rem solid $color-primary;
+            transform: scale(1.2);
+            z-index: 20;
+        }
+    }
+}
