@@ -213,6 +213,11 @@ Designed and implemented by [Jonas Schmedtmann](https://github.com/jonasschmedtm
 }
 ```
 
+### Selectors
+
+ * \> (direct child selector).
+ * \* (universal selector).
+
 ### Pseudo-Classes
 
 * first-child: apply styles only to the first nested child element.
