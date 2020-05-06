@@ -58,6 +58,16 @@
         }
     }
 
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+            color: $color-grey-dark;
+        }
+    }
+
     &--animated {
         animation: moveInBottom .5s ease-out .75s;
         /* 
