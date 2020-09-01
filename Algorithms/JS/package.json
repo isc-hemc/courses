@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "testAll": "jest",
-    "testReverseString": "jest reverseString/test.js"
+    "testReverseString": "jest reverseString/test.js",
+    "testIsPalindrome": "jest palindrome/test.js"
   },
   "type": "module",
   "keywords": [
