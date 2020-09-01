@@ -1,0 +1,31 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "Set up only for local dependencies to run this scripts",
+  "main": "index.js",
+  "scripts": {
+    "testAll": "jest",
+    "testReverseString": "jest reverseString/test.js"
+  },
+  "type": "module",
+  "keywords": [
+    "algorithms",
+    "js",
+    "javascript",
+    "jest",
+    "data-structures"
+  ],
+  "author": "David Martinez",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.4.2",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "eslint": "^7.8.0",
+    "eslint-plugin-jest": "^23.20.0"
+  }
+}
