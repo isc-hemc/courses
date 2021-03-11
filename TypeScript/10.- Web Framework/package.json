@@ -2,23 +2,26 @@
   "name": "web-framework",
   "version": "1.0.0",
   "description": "small project using typescript in order to master the technology",
-  "main": "index.ts",
   "repository": "https://github.com/Davestring/courses",
   "author": "David Martinez",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "start": "webpack serve",
+    "build": "webpack --config ./webpack.config.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "html-webpack-plugin": "^5.3.1",
     "prettier": "^2.2.1",
     "ts-loader": "^8.0.17",
     "typescript": "^4.2.3",
     "webpack": "^5.24.4",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
