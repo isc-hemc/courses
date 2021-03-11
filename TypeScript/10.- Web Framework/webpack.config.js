@@ -23,8 +23,10 @@ module.exports = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
+      inject: true,
       template: path.resolve(process.cwd(), 'src/index.html'),
     }),
   ],
