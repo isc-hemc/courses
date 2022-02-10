@@ -11,7 +11,7 @@
     "start": "live-server"
   },
   "devDependencies": {
-    "node-sass": "4.14.0"
+    "node-sass": "7.0.0"
   },
   "dependencies": {
     "live-server": "1.2.1"
